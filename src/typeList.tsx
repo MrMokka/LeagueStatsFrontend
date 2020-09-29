@@ -1,6 +1,6 @@
 
 export type SummonerData = {
-    accountId: number,
+    accountId: string,
     name: string
 };
 

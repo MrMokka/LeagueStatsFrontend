@@ -1,26 +1,18 @@
 import React from 'react';
 import './App.css';
-import {SummonerData, MatchListData, MatchData,
-    ParticipantData, ParticipantIdentitiesData} from './typeList'
+import * as type from './typeList'
 
-let tempDataFile = require('./tempData.json');
+import tempDataFile from './tempData.json'
 
-const tempSummonerDataa: SummonerData = {
-    accountId: tempDataFile["summoner"]["accountId"],
-    name: tempDataFile["summoner"]["name"]
-};
-
-const temptMatchData = tempDataFile["matchData"] as MatchData;
-const tempData = {
-    // summoner: JSON.parse(tempDataFile["summoner"]) as SummonerData,
-    // matches: JSON.parse(tempDataFile["matches"]) as MatchListData[],
-    // matchData: JSON.parse(tempDataFile["matchData"]) as MatchData
-}
+const summoner = tempDataFile["summoner"];
+const matches = tempDataFile["matches"];
+const matchData = tempDataFile["matchData"];
 
 
 function App() {
-    console.log(tempSummonerDataa);
-    console.log(temptMatchData);
+    console.log(summoner);
+    console.log(matches);
+    console.log(matchData);
     return (
         <div className="App">
             
