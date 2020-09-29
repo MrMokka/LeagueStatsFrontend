@@ -6,7 +6,7 @@ type Props = {
 }
 
 
-export function Match() {
+export const Match = () => {
 
 
     return(
@@ -14,5 +14,5 @@ export function Match() {
             
         </div>
     );
-}
+};
 
