@@ -34,9 +34,6 @@ export type MatchData = {
 
 export type ChampionData = {
     key: string,
-    name: string,
-    image: {
-        full: string
-    }
+    name: string
 }
 

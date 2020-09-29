@@ -11,9 +11,9 @@ const matchData = tempDataFile["matchData"];
 
 
 const App = () => {
-    console.log(summoner);
-    console.log(matches);
-    console.log(matchData);
+
+
+    
     return (
         <div className="App">
             

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {SummonerData, MatchListData} from '../typeList'
-import {getChampionById} from '../helperFunctions'
+import {getChampionById, getChampionImage} from '../helperFunctions'
 
 type Props = {
     summoner: SummonerData,
@@ -15,7 +15,7 @@ const MatchCard = ({...props}: Props) => {
         <div>
             <p>{props.summoner.name}</p>
             <p>{champion.name}</p>
-            <p>{champion.image.full}</p>
+            <img src={getChampionImage(champion)} alt="ChampImage" />
         </div>
     );
 };
