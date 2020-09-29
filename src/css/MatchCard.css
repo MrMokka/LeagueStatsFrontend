@@ -1,0 +1,23 @@
+.matchCard {
+  background-color: lightgrey;
+  padding: 5px;
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.champInfo {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.champImage {
+  width: 48px;
+}
+
+.timeInfo {
+  font-size: 13px;
+  display: inline-flex;
+  flex-direction: column;
+}
+

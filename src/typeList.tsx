@@ -1,10 +1,16 @@
 
-export type SummonerData = {
+export type Summoner = {
     accountId: string,
     name: string
 };
 
-export type MatchListData = {
+export type Player = {
+    accountId: string,
+    summonerName: string,
+    summonerId: string
+}
+
+export type MatchList = {
     gameId: number,
     champion: number,
     timestamp: number,
@@ -12,27 +18,44 @@ export type MatchListData = {
     lane: string
 };
 
-export type ParticipantData = {
+export type Stats = {
+    win: boolean,
+    kills: number,
+    deaths: number,
+    assists: number,
+    champLevel: number
+}
 
-};
-
-export type ParticipantIdentitiesData = {
+export type Participant = {
     participantId: number,
-    player: {
-        accountId: string,
-        summonerName: string,
-        summonerId: string
-    }
+    championId: number,
+    spell1Id: number,
+    spell2Id: number,
+    stats: Stats
 };
 
-export type MatchData = {
+export type ParticipantIdentities = {
+    participantId: number,
+    player: Player
+};
+
+export type Team = {
+    win: string
+};
+
+export type Match = {
     gameId: number,
-    participants: ParticipantData[],
-    participantIdentities: ParticipantIdentitiesData[],
+    gameDuration: number,
+    gameMode: string,
+    gameType: string,
+    teams: Team[],
+    participants: Participant[],
+    participantIdentities: ParticipantIdentities[],
 };
 
 
-export type ChampionData = {
+
+export type Champion = {
     key: string,
     name: string
 }
