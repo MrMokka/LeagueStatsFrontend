@@ -1,3 +1,16 @@
+
+Notes:
+
+JSON reading will save the whole object, but because of typing you can just "." the needed fields. All other fields are accesible with "[""]" syntax
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
