@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
-import {Summoner, Match} from '../typeList'
-import {getChampionById, getChampionImage} from '../helperFunctions'
+import {Summoner, Match, MatchList} from '../typeList'
+import * as helper from '../helperFunctions'
 import '../css/MatchCard.css'
 
 type Props = {
     summoner: Summoner,
     match: Match
+    matchListShort: MatchList
 }
 
 const MatchCard = ({...props}: Props) => {
     const [player, setPlayer] = useState();
-    const [champion, setChampion] = useState(getChampionById(props.match.));
+    const [champion, setChampion] = useState(helper.getChampionById(props.matchListShort.champion));
     const [match, seMatch] = useState(props.match);
 
     return (
@@ -26,13 +27,13 @@ const MatchCard = ({...props}: Props) => {
             team
             */}
             <div className="timeInfo">
-                Normal
-                2 days ago
-                --------
-                {}
+                <div>Normal</div>
+                <div>2 days ago</div>
+                <div>--------</div>
+                <div>{}</div>
             </div>
             <div className="champInfo">
-                <img className="champImage" src={getChampionImage(champion)} alt="ChampImage" />
+                <img className="champImage" src={helper.getChampionImage(champion)} alt="ChampImage" />
                 {champion.name}
             </div>
             
