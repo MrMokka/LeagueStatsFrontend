@@ -1,5 +1,13 @@
 .App {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.matchCards {
   text-align: center;
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .App-logo {
