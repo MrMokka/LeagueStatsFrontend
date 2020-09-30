@@ -18,6 +18,16 @@
             "timestamp": 1601120944360,
             "role": "NONE",
             "lane": "JUNGLE"
+		},
+		{
+            "platformId": "EUW1",
+            "gameId": 4836317067,
+            "champion": 98,
+            "queue": 400,
+            "season": 13,
+            "timestamp": 1601120944360,
+            "role": "NONE",
+            "lane": "JUNGLE"
 		}
 	],
 	"matchData": {
