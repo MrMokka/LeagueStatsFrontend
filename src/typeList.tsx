@@ -53,10 +53,19 @@ export type Match = {
     participantIdentities: ParticipantIdentities[],
 };
 
-
+export type TimeConverted = {
+    hours: number,
+    minutes: number,
+    seconds: number
+};
 
 export type Champion = {
     key: string,
     name: string
+};
+
+export type SummonerSpell = {
+    name: string
 }
+
 

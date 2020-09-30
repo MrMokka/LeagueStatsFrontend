@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Summoner, Match, MatchList} from '../typeList'
+import {Summoner, Match, MatchList, TimeConverted} from '../typeList'
 import * as helper from '../helperFunctions'
 import '../css/MatchCard.css'
 
@@ -13,6 +13,12 @@ const MatchCard = ({...props}: Props) => {
     const [player, setPlayer] = useState();
     const [champion, setChampion] = useState(helper.getChampionById(props.matchListShort.champion));
     const [match, seMatch] = useState(props.match);
+
+    const formatGameDuration = () => {
+        const time: TimeConverted = helper.getMatchTimeConverted(match.gameDuration);
+        if(time.hours === 0) return `${time.minutes}m ${time.seconds}s`
+        return `${time.hours}h ${time.minutes}m ${time.seconds}s`
+    };
 
     return (
         <div className="matchCard">
@@ -29,8 +35,8 @@ const MatchCard = ({...props}: Props) => {
             <div className="timeInfo">
                 <div>Normal</div>
                 <div>2 days ago</div>
-                <div>--------</div>
-                <div>{}</div>
+                <hr></hr>
+                <div>{formatGameDuration()}</div>
             </div>
             <div className="champInfo">
                 <img className="champImage" src={helper.getChampionImage(champion)} alt="ChampImage" />
@@ -44,3 +50,4 @@ const MatchCard = ({...props}: Props) => {
 };
 
 export default MatchCard;
+
