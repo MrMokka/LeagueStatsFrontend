@@ -65,7 +65,9 @@ export type Champion = {
 };
 
 export type SummonerSpell = {
-    name: string
+    id: string,
+    name: string,
+    key: string
 }
 
 
