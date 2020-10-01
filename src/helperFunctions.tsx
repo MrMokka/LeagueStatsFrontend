@@ -1,4 +1,5 @@
-import {data} from './championData.json'
+import {data as champData} from './championData.json'
+import {data as sumSpellData} from './summonerSpells.json'
 import * as type from './typeList'
 
 import tempDataFile from './tempData.json'
@@ -8,8 +9,7 @@ const matchList = tempDataFile["matches"];
 const matchData = tempDataFile["matchData"];
 
 export const getChampionById = (id: number): type.Champion => {
-    // @ts-ignore: Unreachable code error
-    for(let [key, value] of Object.entries(data)){
+    for(let [key, value] of Object.entries(champData)){
         if(value.key === id.toString()) return value;
         if(value.key === id.toString()) value.key = key; //Removes Warning
     }
@@ -20,15 +20,38 @@ export const getChampionById = (id: number): type.Champion => {
     return dummy;
 };
 
+export const getSummonerSpellById = (id: number): type.SummonerSpell => {
+    for(let [key, value] of Object.entries(sumSpellData)){
+        if(value.key === id.toString()) return value;
+        if(value.key === id.toString()) value.key = key; //Removes Warning
+    }
+    let dummy: type.SummonerSpell = {
+        id: "null",
+        name: "null",
+        key: "null"
+    }
+    return dummy;
+};
+
+export const getSummonerSpell = (summoner: type.Summoner, match: type.Match, spellNum: number): type.SummonerSpell => {
+    let participant = getParticipant(getParticipantId(summoner, match), match);
+    if(!participant) return {key: "", id: "", name: ""};
+    return spellNum === 1 ? getSummonerSpellById(participant.spell1Id) : getSummonerSpellById(participant.spell2Id);
+};
+
+export const getSummonerSpellImage = (summonerSpell: type.SummonerSpell): string => {
+    return `http://ddragon.leagueoflegends.com/cdn/10.19.1/img/spell/${summonerSpell.id}.png`;
+};
+
 export const getChampionImage = (champion: type.Champion): string => {
     return `http://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/${champion.name}.png`;
 };
 
-export const getSummonerSpellImage = (summonerSpell: type.SummonerSpell): string => {
-    return `http://ddragon.leagueoflegends.com/cdn/10.20.1/img/spell/${summonerSpell.name}.png`;
+export const getParticipant = (participantId: number, match: type.Match): type.Participant | undefined => {
+    return match.participants.find(p => p.participantId === participantId);
 };
 
-export const getParticipationId = (summoner: type.Summoner, match: type.Match): number => {
+export const getParticipantId = (summoner: type.Summoner, match: type.Match): number => {
     return match.participantIdentities.find(id => id.player.summonerName === summoner.name)?.participantId || -1;
 };
 
