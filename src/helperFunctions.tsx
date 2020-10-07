@@ -1,5 +1,5 @@
-import {data as champData} from './championData.json'
-import {data as sumSpellData} from './summonerSpells.json'
+import {data as champData} from './data/championData.json'
+import {data as sumSpellData} from './data/summonerSpells.json'
 import * as type from './typeList'
 
 import tempDataFile from './tempData.json'
